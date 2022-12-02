@@ -19,7 +19,7 @@ public class conexion {
     PreparedStatement ps;
     ResultSet rs;
 
-     public Connection getConnection(){
+     public static Connection getConnection(){
         conn=null;
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");

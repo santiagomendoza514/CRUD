@@ -26,7 +26,7 @@ public class ctrlinfo implements ActionListener{
     
     
     public void iniciar(){
-    frm.setTitle("Informacion"); 
+    frm.setTitle("ADMIN_LOG"); 
     frm.setLocationRelativeTo(null);
     frm.txtid.setVisible(false);
 }

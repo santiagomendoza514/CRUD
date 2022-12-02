@@ -19,7 +19,7 @@ public class consultasinfo extends conexion{
             ps.setString(1, pro.getCodigo());
             ps.setString(2, pro.getNombre());
             ps.setString(3, pro.getCelular());
-            ps.setString(4, pro.getNombre());
+            ps.setString(4, pro.getContraseña());
             ps.execute();
             return true;
             
@@ -39,7 +39,7 @@ public class consultasinfo extends conexion{
     
     public boolean modificar(info pro){
         PreparedStatement ps = null; 
-        Connection con = getconexion();
+        Connection con = conexion.getConnection();
         
         String sql = "UPDATE info SET codigo=? nombre=?, celular=?, contraseña=? WHERE id=?";
         
@@ -48,7 +48,7 @@ public class consultasinfo extends conexion{
             ps.setString(1, pro.getCodigo());
             ps.setString(2, pro.getNombre());
             ps.setString(3, pro.getCelular());
-            ps.setString(4, pro.getNombre());
+            ps.setString(4, pro.getContraseña());
             ps.setInt(5, pro.getId());
             ps.execute();
             return true;
@@ -68,7 +68,7 @@ public class consultasinfo extends conexion{
     
    public boolean eliminar(info pro){
         PreparedStatement ps = null; 
-        Connection con = getconexion();
+        Connection con = conexion.getConnection();
         
         String sql = "DELETE FROM info WHERE id=?";
         
@@ -94,7 +94,7 @@ public class consultasinfo extends conexion{
    public boolean buscar(info pro){
         PreparedStatement ps = null; 
         ResultSet rs = null;
-        Connection con = getconexion();
+        Connection con = conexion.getConnection();
         
         String sql = "SELECT * FROM info WHERE codigo=?";
         
@@ -128,7 +128,7 @@ public class consultasinfo extends conexion{
         
     }
 
-    private Connection getconexion() {
+    public Connection getconexion() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
